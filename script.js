@@ -32,12 +32,12 @@ function addStudentData(student) {
 
 // นักเรียนหลายคน
 
-function addStudentList(studentList) {
-    let counter = 1
-    for (student of studentList) {
-        addStudentToTable(counter++, student)
-    }
-}
+// function addStudentList(studentList) {
+//     let counter = 1
+//     for (student of studentList) {
+//         addStudentToTable(counter++, student)
+//     }
+// }
 
 function addStudentToTable(index, student) {
 
@@ -64,14 +64,34 @@ function addStudentToTable(index, student) {
 
 }
 // GET ข้อมูลจาก POSTMAN - > นักเรียนหลายคน
-function onLoad() {
-    fetch('https://dv-student-backend-2019.appspot.com/students')
+// function onLoad() {
+//     fetch('https://dv-student-backend-2019.appspot.com/students')
+//         .then((response) => {
+//             return response.json()
+//         }).then(data => {
+
+//             addStudentList(data);
+
+//         })
+
+
+// }
+
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+
+// รับ id แล้วค้นหา
+let searchButton = document.getElementById('SearchButton');
+searchButton.addEventListener('click', () => {
+    let idz = document.getElementById('input').value; //ต้องอยู่ข้างใน function
+    fetch(`https://dv-student-backend-2019.appspot.com/student/${idz}`)
         .then((response) => {
             return response.json()
-        }).then(data => {
+        }).then(student => {
 
-            addStudentList(data)
+            addStudentData(student);
+
         })
 
 
-}
+})
