@@ -1,3 +1,9 @@
 img {
     width: 250px;
+    height: 300px;
+}
+
+tr,
+td {
+    border: 1px solid #000;
 }
